@@ -1,0 +1,371 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf400
+{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;\f1\fnil\fcharset0 Menlo-Bold;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;\red183\green111\blue179;
+\red23\green23\blue23;\red202\green202\blue202;\red67\green192\blue160;\red140\green211\blue254;\red89\green138\blue67;
+\red194\green126\blue101;\red70\green137\blue204;\red200\green20\blue201;\red46\green174\blue187;\red47\green180\blue29;
+\red212\green214\blue154;}
+{\*\expandedcolortbl;;\csgray\c0;\csgray\c100000;\cssrgb\c77255\c52549\c75294;
+\cssrgb\c11765\c11765\c11765;\cssrgb\c83137\c83137\c83137;\cssrgb\c30588\c78824\c69020;\cssrgb\c61176\c86275\c99608;\cssrgb\c41569\c60000\c33333;
+\cssrgb\c80784\c56863\c47059;\cssrgb\c33725\c61176\c83922;\cssrgb\c83396\c23075\c82664;\cssrgb\c20196\c73240\c78250;\cssrgb\c20238\c73898\c14947;
+\cssrgb\c86275\c86275\c66667;}
+\margl1440\margr1440\vieww16000\viewh15820\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf0 \'97\'97\'97\'97\'97\'97\'9726 sept\
+\
+RUBY\
+Como se hereda de una clase\
+\
+Rails:\
+soporta\
+por defecto sqlite\
+mysql \
+postgreq\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs36 \cf2 \cb3 \CocoaLigature0 crear nueva app: rails new cms-sqlite\cf0 \cb1 \CocoaLigature1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\fs28 \cf0 \'97\
+1.entrar a la carpeta rails sqlite\
+2. check gem file donde estan las libraries\
+sqlite 3 \
+puma el sevidor rails\
+3.la carpeta de trabajo es App con arquitectura model view controller\
+4.carpeta config: par\'e1metros del servidor\
+5. rails server (para comenzar la app)\
+\
+6. 
+\fs22 \cf2 \cb3 \CocoaLigature0  rails generate controller NAME [action action] [options]\
+\
+erb\'97> embebed ruby las plantillas html\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://localhost:3000/prueba/index"}}{\fldrslt http://localhost:3000/prueba/index}}\
+\
+(cogear.js)
+\fs28 \cf0 \cb1 \CocoaLigature1 \
+\
+\
+\'97\'97\'97\'97\'9727 sept\
+en ruby para instalar un repositorio clonado:\
+gem install bundler\
+\
+***crear base de datos:\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs22 \cf2 \cb3 \CocoaLigature0 rails db:schema:dump\
+\
+***Generar migraci\'f3n:\
+\
+rails generate migration NoHacerNadaTodavia\
+\
+***generar modelo:\
+rails generate model Usuario\
+\
+***correr la migraci\'f3n:\
+rails db:migrate\
+\
+Instalar sqlite studio para visualizar la base de datos:\
+\
+agregar base de datos en sqlite studio y localizar la carpeta db en la carpeta del proyecto ruby\
+\
+***volver al estado 0 de las migraciones\
+\
+rails db:migrate VERSION=0\
+vuelve a el estado 0\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs28 \cf0 \cb1 \CocoaLigature1 \
+EL \'93DOWN\'94 ES PARA ELIMINAR\
+\
+rails db:migrate:status\
+lista las migraciones\
+\
+\'97
+\fs22 \cf2 \cb3 \CocoaLigature0 rails db:migrate VERSION=20180927151008\
+vuelve a la migraci\'f3n seleccionada\
+\
+\'97\'97\'97\'97\'972 oct \
+\
+new app rails blog:\
+1. rails new blog \'97api\
+2. lanzar servidor:\
+rails server\
+3. rails generate model articulo titulo:string contenido:text\
+crea un nuevo modelo / migraci\'f3n\
+4. crear nueva carpeta amo/controllers/api/v1/articulos_controller.rb =>\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs24 \cf4 \cb5 \expnd0\expndtw0\kerning0
+\CocoaLigature1 module\cf6 \cb5  \cf7 \cb5 Api\cf6 \cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf6 \cb5     \cf4 \cb5 module\cf6 \cb5  \cf7 \cb5 V1\cf6 \cb1 \
+\cb5         \cf4 \cb5 class\cf6 \cb5  \cf7 \cb5 ArticuloController < ApplicationController\cf6 \cb1 \
+\cb5         \cf4 \cb5 end\cf6 \cb1 \
+\cb5     \cf4 \cb5 end\cf6 \cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf4 \cb5 end\cf6 \cb1 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs28 \cf0 \kerning1\expnd0\expndtw0 \
+5. routes.rb\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs24 \cf7 \cb5 \expnd0\expndtw0\kerning0
+Rails\cf6 \cb5 .\cf8 application\cf6 .\cf8 routes\cf6 .draw \cf4 \cb5 do\cf6 \cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf6 \cb5   \cf9 \cb5 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html\cf6 \cb1 \
+\cb5   namespace \cf10 'api'\cf6  \cf4 \cb5 do\cf6 \cb1 \
+\cb5     namespace \cf10 'v1'\cf6  \cf4 \cb5 do\cf6 \cb1 \
+\cb5       resources \cf11 \cb5 :articulos\cf6 \cb1 \
+\cb5     \cf4 \cb5 end\cf6 \cb1 \
+\cb5   \cf4 \cb5 end\cf6 \cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf4 \cb5 end\cf6 \cb1 \
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \kerning1\expnd0\expndtw0 6. rails routes\
+\
+7. db/migrate:\
+\
+\pard\pardeftab720\sl360\partightenfactor0
+\cf7 \cb5 \expnd0\expndtw0\kerning0
+Rails\cf6 \cb5 .\cf8 application\cf6 .\cf8 routes\cf6 .draw \cf4 \cb5 do\cf6 \cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf6 \cb5   \cf9 \cb5 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html\cf6 \cb1 \
+\cb5   namespace \cf10 'api'\cf6  \cf4 \cb5 do\cf6 \cb1 \
+\cb5     namespace \cf10 'v1'\cf6  \cf4 \cb5 do\cf6 \cb1 \
+\cb5       resources \cf11 \cb5 :articulos\cf6 \cb1 \
+\cb5     \cf4 \cb5 end\cf6 \cb1 \
+\cb5   \cf4 \cb5 end\cf6 \cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf4 \cb5 end\cf6 \cb1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf6 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \kerning1\expnd0\expndtw0 8. rails db:migrate\
+9. rails console\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs22 \cf2 \cb3 \CocoaLigature0 irb(main):001:0> articulo = Articulo.new\
+=> #<Articulo id: nil, titulo: nil, contenido: nil, created_at: nil, updated_at: nil>\
+irb(main):002:0> articulo.titulo = "titulo1"\
+=> "titulo1"\
+irb(main):003:0> articulo.conteido = "contenido1"\
+NoMethodError: undefined method `conteido=' for #<Articulo:0x007fa890432138>\
+Did you mean?  contenido=\
+               contenido\
+               contenido?\
+	from (irb):3\
+irb(main):004:0> articulo.contenido = "contenido1"\
+=> "contenido1"\
+irb(main):005:0> articulo.save\
+  
+\f1\b \cf12 \cb3  (0.1ms)
+\f0\b0 \cf2 \cb3   
+\f1\b \cf13 \cb3 begin transaction
+\f0\b0 \cf2 \cb3 \
+  
+\f1\b \cf12 \cb3 SQL (0.5ms)
+\f0\b0 \cf2 \cb3   
+\f1\b \cf14 \cb3 INSERT INTO "articulos" ("titulo", "contenido", "created_at", "updated_at") VALUES (?, ?, ?, ?)
+\f0\b0 \cf2 \cb3   [["titulo", "titulo1"], ["contenido", "contenido1"], ["created_at", "2018-10-02 14:02:58.518239"], ["updated_at", "2018-10-02 14:02:58.518239"]]\
+  
+\f1\b \cf12 \cb3  (1.9ms)
+\f0\b0 \cf2 \cb3   
+\f1\b \cf13 \cb3 commit transaction
+\f0\b0 \cf2 \cb3 \
+=> true\
+irb(main):006:0>\
+\
+\'97\'97\'97\
+\
+fonoptic:blog Fonoptic$ rails console\
+Running via Spring preloader in process 4464\
+Loading development environment (Rails 5.1.6)\
+irb(main):001:0> articulo = Articulo.new\
+=> #<Articulo id: nil, titulo: nil, contenido: nil, created_at: nil, updated_at: nil>\
+irb(main):002:0> articulo.titulo = "titulo1"\
+=> "titulo1"\
+irb(main):003:0> articulo.conteido = "contenido1"\
+NoMethodError: undefined method `conteido=' for #<Articulo:0x007fa890432138>\
+Did you mean?  contenido=\
+               contenido\
+               contenido?\
+	from (irb):3\
+irb(main):004:0> articulo.contenido = "contenido1"\
+=> "contenido1"\
+irb(main):005:0> articulo.save\
+  
+\f1\b \cf12 \cb3  (0.1ms)
+\f0\b0 \cf2 \cb3   
+\f1\b \cf13 \cb3 begin transaction
+\f0\b0 \cf2 \cb3 \
+  
+\f1\b \cf12 \cb3 SQL (0.5ms)
+\f0\b0 \cf2 \cb3   
+\f1\b \cf14 \cb3 INSERT INTO "articulos" ("titulo", "contenido", "created_at", "updated_at") VALUES (?, ?, ?, ?)
+\f0\b0 \cf2 \cb3   [["titulo", "titulo1"], ["contenido", "contenido1"], ["created_at", "2018-10-02 14:02:58.518239"], ["updated_at", "2018-10-02 14:02:58.518239"]]\
+  
+\f1\b \cf12 \cb3  (1.9ms)
+\f0\b0 \cf2 \cb3   
+\f1\b \cf13 \cb3 commit transaction
+\f0\b0 \cf2 \cb3 \
+=> true\
+irb(main):006:0> articulo.id\
+=> 1\
+irb(main):007:0> articulo = Articulo.new(:titulo => "titulo2", :contenido => "contenido2")\
+=> #<Articulo id: nil, titulo: "titulo2", contenido: "contenido2", created_at: nil, updated_at: nil>\
+irb(main):008:0> ^Cticulo = Articulo.create(:titulo => "titulo3", :contenido=> "contenido3")\
+irb(main):010:0> articulo = Articulo.create(:titulo => "titulo2", :contenido=> "contenido2")\
+  
+\f1\b \cf12 \cb3  (0.1ms)
+\f0\b0 \cf2 \cb3   
+\f1\b \cf13 \cb3 begin transaction\cf14 rticulos" ("titulo", "contenido",
+\f0\b0 \cf2 \cb3 4
+\f1\b \cf14 \cb3 "created_at", "updated_a
+\f0\b0 \cf2 \cb3 do4")
+\f1\b \cf14 \cb3 ALUES (?, ?, ?, ?)
+\f0\b0 \cf2 \cb3   [["tit  
+\f1\b \cf12 \cb3 SQL (1.2ms)
+\f0\b0 \cf2 \cb3   
+\f1\b \cf14 \cb3 INSERT INTO "articulos" ("titulo", "contenido", "created_at", "updated_at") VALUES (?, ?, ?, ?)
+\f0\b0 \cf2 \cb3   [["titulo", "titulo2"], ["contenido", "contenido2"], ["created_at", "2018-10-02 14:23:36.304780"], ["updated_at", "2018-10-02 14:23:36.304780"]]
+\f1\b \cf13 \cb3 ransaction
+\f0\b0 \cf2 \cb3                                 3                        do3")\
+  
+\f1\b \cf12 \cb3  (2.6ms)
+\f0\b0 \cf2 \cb3   
+\f1\b \cf13 \cb3 commit transaction
+\f0\b0 \cf2 \cb3 ticulo.create(:titulo => "titulo4", :contenido=> "contenid 14:10:56", updated_at: "2018-=> #<Articulo id: 4, titulo: "titulo2", contenido: "contenido2", created_at: "2018-10-02 14:23:36", updated_at: "2018-10-02 14:23:36"> articulo = Articulo.create(:titulo => "titulo4", :contenido=> "contenid 4")\
+irb(main):011:0> articulo.titulo = "titulo2"\
+=> "titulo2"
+\f1\b \cf12 \cb3 )
+\f0\b0 \cf2 \cb3   
+\f1\b \cf14 \cb3 IN
+\f0\b0 \cf2 \cb3 articulo = Articulo.create(:titulo => "titulo4", :contenido=> "contenid 
+\f1\b \cf14 \cb3 ) VALUES (?, ?, ?, ?)
+\f0\b0 \cf2 \cb3   [["titirb(main):012:0> articulo.contenido = "contenido2"\
+=> "contenido2"52"]]                              4                        do4")\
+irb(main):013:0> articulo.save\
+  
+\f1\b \cf12 \cb3  (0.1ms)
+\f0\b0 \cf2 \cb3   
+\f1\b \cf13 \cb3 begin transaction
+\f0\b0 \cf2 \cb3 rticulo.create(:titulo => "titulo4", :contenido=> "contenid 14:16:09", updated_at: \
+  
+\f1\b \cf12 \cb3  (0.1ms)
+\f0\b0 \cf2 \cb3   
+\f1\b \cf13 \cb3 commit transaction
+\f0\b0 \cf2 \cb3 :0> articulo = Articulo.create(:titulo => "titulo4", :contenido=> "contenid \
+=> true\
+irb(main):014:0> \
+\
+\
+\'97ORM\'97\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs24 \cf6 \cb1 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs28 \cf0 \kerning1\expnd0\expndtw0 10. Download postman\
+11. articulos_controller.rb:\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs24 \cf4 \cb5 \expnd0\expndtw0\kerning0
+module\cf6 \cb5  \cf7 \cb5 Api\cf6 \cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf6 \cb5     \cf4 \cb5 module\cf6 \cb5  \cf7 \cb5 V1\cf6 \cb1 \
+\cb5         \cf4 \cb5 class\cf6 \cb5  \cf7 \cb5 ArticulosController < ApplicationController\cf6 \cb1 \
+\cb5             \cf4 \cb5 def\cf6 \cb5  \cf15 \cb5 index\cf6 \cb1 \
+\cb5                 \cf8 articulos\cf6  = \cf7 \cb5 Articulo\cf6 \cb5 .\cf15 \cb5 order\cf6 \cb5 (\cf10 "created_at DESC"\cf6 )\cb1 \
+\cb5                 render \cf11 \cb5 json:\cf6 \cb5  \{\cb1 \
+\cb5                     \cf11 \cb5 datos:\cf6 \cb5  articulos\cb1 \
+\cb5                 \}, \cf11 \cb5 status:\cf6 \cb5  \cf11 \cb5 :ok\cf6 \cb1 \
+\cb5                 \cb1 \
+\cb5             \cf4 \cb5 end\cf6 \cb1 \
+\cb5             \cf4 \cb5 def\cf6 \cb5  \cf15 \cb5 show\cf6 \cb1 \
+\cb5                 \cf8 articulo\cf6  = \cf7 \cb5 Articulo\cf6 \cb5 .\cf15 \cb5 find_by_id\cf6 \cb5 (params[\cf11 \cb5 :id\cf6 \cb5 ])\cb1 \
+\cb5                 render \cf11 \cb5 json:\cf6 \cb5  \{\cb1 \
+\cb5                     \cf11 \cb5 datos:\cf6 \cb5  articulo\cb1 \
+\cb5                 \}, \cf11 \cb5 status:\cf6 \cb5  \cf11 \cb5 :ok\cf6 \cb1 \
+\cb5             \cf4 \cb5 end\cf6 \cb1 \
+\
+\cb5             \cf4 \cb5 def\cf6 \cb5  \cf15 \cb5 create\cf6 \cb1 \
+\cb5                 \cf8 articulo\cf6  = \cf7 \cb5 Articulo\cf6 \cb5 .\cf11 \cb5 new\cf6 \cb5 (\cf8 articulos_params\cf6 )\cb1 \
+\cb5                 \cf4 \cb5 if\cf6 \cb5  \cf8 articulo\cf6 .save\cb1 \
+\cb5                     render \cf11 \cb5 json:\cf6 \cb5  \{\cb1 \
+\cb5                         \cf11 \cb5 datos:\cf6 \cb5  articulo\cb1 \
+\cb5                     \}, \cf11 \cb5 status:\cf6 \cb5  \cf11 \cb5 :ok\cf6 \cb1 \
+\cb5                 \cf4 \cb5 else\cf6 \cb1 \
+\cb5                     render \cf11 \cb5 json:\cf6 \cb5  \{\cb1 \
+\cb5                         \cf11 \cb5 datos:\cf6 \cb5  \cf11 \cb5 nil\cf6 \cb5 ,\cb1 \
+\cb5                         \cf11 \cb5 mensaje:\cf6 \cb5  \cf8 articulo\cf6 .errors\cb1 \
+\cb5                     \}, \cf11 \cb5 status:\cf6 \cb5  \cf11 \cb5 :unprocessable_entity\cf6 \cb1 \
+\cb5                 \cf4 \cb5 end\cf6 \cb1 \
+\cb5             \cf4 \cb5 end\cf6 \cb1 \
+\
+\cb5             \cf4 \cb5 def\cf6 \cb5  \cf15 \cb5 update\cf6 \cb1 \
+\cb5                 \cf8 articulo\cf6  = \cf7 \cb5 Articulo\cf6 \cb5 .\cf15 \cb5 find_by_id\cf6 \cb5 (params[\cf11 \cb5 :id\cf6 \cb5 ])\cb1 \
+\cb5                 \cf4 \cb5 if\cf6 \cb5  \cf8 articulo\cf6 .\cf15 \cb5 update_attributes\cf6 \cb5 (\cf8 articulos_params\cf6 )\cb1 \
+\cb5                 render \cf11 \cb5 json:\cf6 \cb5  \{\cb1 \
+\cb5                     \cf11 \cb5 datos:\cf6 \cb5  articulo\cb1 \
+\
+\cb5                 \}, \cf11 \cb5 status:\cf6 \cb5  \cf11 \cb5 :ok\cf6 \cb1 \
+\cb5                 \cf4 \cb5 else\cf6 \cb1 \
+\cb5                     render \cf11 \cb5 json:\cf6 \cb5  \{\cb1 \
+\cb5                         \cf11 \cb5 datos:\cf6 \cb5  \cf8 articulo\cf6 ,\cb1 \
+\cb5                         \cf11 \cb5 mensaje:\cf6 \cb5  \cf8 articulo\cf6 .errors\cb1 \
+\cb5     \cb1 \
+\cb5                     \}, \cf11 \cb5 status:\cf6 \cb5  \cf11 \cb5 :unprocessable_entity\cf6 \cb1 \
+\cb5                 \cf4 \cb5 end\cf6 \cb1 \
+\cb5             \cf4 \cb5 end\cf6 \cb1 \
+\cb5             \cf4 \cb5 def\cf6 \cb5  \cf15 \cb5 destroy\cf6 \cb1 \
+\cb5                 \cf8 articulo\cf6  = \cf7 \cb5 Articulo\cf6 \cb5 .\cf15 \cb5 find_by_id\cf6 \cb5 (params[\cf11 \cb5 :id\cf6 \cb5 ])\cb1 \
+\cb5                 \cf8 articulo\cf6 .destroy\cb1 \
+\cb5                 render \cf11 \cb5 json:\cf6 \cb5  \{\cb1 \
+\cb5                     \cf11 \cb5 mensaje:\cf6 \cb5  \cf10 "Articulo eliminado"\cf6 \cb1 \
+\
+\cb5                 \}, \cf11 \cb5 status:\cf6 \cb5  \cf11 \cb5 :ok\cf6 \cb1 \
+\cb5             \cf4 \cb5 end\cf6 \cb1 \
+\
+\cb5             \cf11 \cb5 private\cf6 \cb1 \
+\
+\cb5             \cf4 \cb5 def\cf6 \cb5  \cf15 \cb5 articulos_params\cf6 \cb1 \
+\cb5                 \cf8 params\cf6 .\cf15 \cb5 permit\cf6 \cb5 (\cf11 \cb5 :titulo\cf6 \cb5 , \cf11 \cb5 :contenido\cf6 \cb5 )\cb1 \
+\cb5             \cf4 \cb5 end\cf6 \cb1 \
+\cb5             \cb1 \
+\cb5         \cf4 \cb5 end\cf6 \cb1 \
+\cb5     \cf4 \cb5 end\cf6 \cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf4 \cb5 end\cf6 \cb1 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs28 \cf0 \kerning1\expnd0\expndtw0 \
+\
+12. 
+\fs22 \cf2 \cb3 \CocoaLigature0 ionic start blog-app blank\
+13. ionic g provider blog\
+\
+ionic code\
+rails cors\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\fs24 \cf15 \cb5 \expnd0\expndtw0\kerning0
+\CocoaLigature1 obtenerArticulos\cf6 \cb5 ()\{\cb1 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf6 \cb5     \cf11 \cb5 this\cf6 \cb5 .\cf8 http\cf6 .\cf15 \cb5 get\cf6 \cb5 (\cf11 \cb5 this\cf6 \cb5 .\cf8 api\cf6 ).\cf15 \cb5 subscribe\cf6 \cb5 (\cb1 \
+\cb5       \cf8 datos\cf6  \cf11 \cb5 =>\cf6 \cb5  \cf7 \cb5 console\cf6 \cb5 .\cf15 \cb5 log\cf6 \cb5 (\cf8 datos\cf6 )\cb1 \
+\cb5     )\cb1 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs28 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+}
